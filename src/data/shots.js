@@ -1,4 +1,5 @@
 import { shot } from '../lib/photoStage'
+import { url } from '../lib/url'
 
 /* ===========================================================================
    Shot lists for the two scroll-scrubbed photo stages.
@@ -13,7 +14,7 @@ export const SHOTS_PER_CHAPTER = 4
 
 const walk = (slug, label, nums, start) =>
   nums.map((n, i) =>
-    shot('/stock/' + slug + '/' + n + '.jpg', start + i, { label }),
+    shot(url('/stock/' + slug + '/' + n + '.jpg'), start + i, { label }),
   )
 
 export const HERO_SHOTS = [
@@ -26,12 +27,12 @@ export const HERO_SHOTS = [
 
 /* the story stage near the foot of the page: a slower, wider drift */
 export const STORY_SHOTS = [
-  shot('/stock/almera-2014/07.jpg', 0, { zoom: [1.0, 1.08] }),
-  shot('/stock/c250-2015/05.jpg', 1, { zoom: [1.0, 1.08] }),
-  shot('/stock/pajero-2008/04.jpg', 2, { zoom: [1.0, 1.08] }),
-  shot('/stock/i20-2021/06.jpg', 3, { zoom: [1.0, 1.08] }),
-  shot('/stock/swift-2019/05.jpg', 4, { zoom: [1.0, 1.08] }),
-  shot('/stock/almera-2014/05.jpg', 5, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/almera-2014/07.jpg'), 0, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/c250-2015/05.jpg'), 1, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/pajero-2008/04.jpg'), 2, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/i20-2021/06.jpg'), 3, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/swift-2019/05.jpg'), 4, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/almera-2014/05.jpg'), 5, { zoom: [1.0, 1.08] }),
 ]
 
 export const HERO_URLS = HERO_SHOTS.map((s) => s.src)

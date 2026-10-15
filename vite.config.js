@@ -9,6 +9,10 @@ const page = (path) => resolve(import.meta.dirname, path)
 
 // https://vite.dev/config/
 export default defineConfig({
+  /* '/' locally. The GitHub Pages workflow sets BASE_PATH to the repo's
+     sub-folder (/Karam-Motors-website-demo/); every in-site path goes through
+     src/lib/url.js so it follows whatever this is. */
+  base: process.env.BASE_PATH || '/',
   plugins: [react()],
   build: {
     rolldownOptions: {

@@ -1,34 +1,35 @@
 import { STOCK } from '../data/stock'
 import { ArrowLong } from './icons.jsx'
 import './PageLinks.css'
+import { url } from '../lib/url'
 
 /* With every section on its own page, the home page ends on a row of
    portrait cards into the rest of the site - the same photographic card the
    showroom uses, held back behind a scrim so the label reads first. */
 const CARDS = [
   {
-    href: '/stock/',
+    href: url('/stock/'),
     label: 'Current stock',
     note: STOCK.length + ' cars on the floor',
-    image: '/stock/c250-2015/01.jpg',
+    image: url('/stock/c250-2015/01.jpg'),
   },
   {
-    href: '/sell/',
+    href: url('/sell/'),
     label: 'Sell your car',
     note: 'Appraisal within 48 hours',
-    image: '/stock/pajero-2008/01.jpg',
+    image: url('/stock/pajero-2008/01.jpg'),
   },
   {
-    href: '/finance/',
+    href: url('/finance/'),
     label: 'Finance',
     note: 'Five lenders, one application',
-    image: '/stock/i20-2021/03.jpg',
+    image: url('/stock/i20-2021/03.jpg'),
   },
   {
-    href: '/story/',
+    href: url('/story/'),
     label: 'Our story',
     note: 'Two generations since 1980',
-    image: '/stock/almera-2014/07.jpg',
+    image: url('/stock/almera-2014/07.jpg'),
   },
 ]
 

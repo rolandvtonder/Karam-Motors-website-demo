@@ -1,3 +1,5 @@
+import { url } from '../lib/url'
+
 /* ===========================================================================
    CURRENT STOCK - the editable list.
 
@@ -12,7 +14,8 @@
 const photos = (slug, count = 8) =>
   Array.from(
     { length: count },
-    (_, i) => '/stock/' + slug + '/' + String(i + 1).padStart(2, '0') + '.jpg',
+    (_, i) =>
+      url('/stock/' + slug + '/' + String(i + 1).padStart(2, '0') + '.jpg'),
   )
 
 export const STOCK = [

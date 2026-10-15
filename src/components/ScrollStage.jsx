@@ -10,6 +10,7 @@ import { clamp, easeOut, drawStage, sizeCanvas } from '../lib/photoStage'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { ArrowLong, CarGlyph, Gauge, SealCheck } from './icons.jsx'
 import './ScrollStage.css'
+import { url } from '../lib/url'
 
 const SHOTS = HERO_SHOTS.length
 const CHAPTERS = SHOTS / SHOTS_PER_CHAPTER // 4
@@ -199,11 +200,11 @@ export default function ScrollStage({ imagesRef, started }) {
             </ul>
 
             <div className="hero__actions">
-              <a className="solid-btn hero__cta" href="/stock/">
+              <a className="solid-btn hero__cta" href={url('/stock/')}>
                 <span>View {STOCK.length} cars in stock</span>
                 <ArrowLong className="solid-btn__arrow" />
               </a>
-              <a className="hero__link" href="/sell/">
+              <a className="hero__link" href={url('/sell/')}>
                 <span>Sell your car</span>
                 <ArrowLong className="hero__link-arrow" />
               </a>

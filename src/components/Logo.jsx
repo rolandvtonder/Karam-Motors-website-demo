@@ -1,4 +1,5 @@
 import './Logo.css'
+import { url } from '../lib/url'
 
 /* The supplied logo is a navy disc on an opaque near-black square
    (227 x 221). Rather than re-drawing it, the original file is shown through
@@ -7,7 +8,7 @@ import './Logo.css'
 export default function Logo({ className = '', alt = 'Karam Motors' }) {
   return (
     <span className={'logo ' + className} role="img" aria-label={alt}>
-      <img src="/brand/logo.png" alt="" aria-hidden="true" draggable="false" />
+      <img src={url('/brand/logo.png')} alt="" aria-hidden="true" draggable="false" />
     </span>
   )
 }

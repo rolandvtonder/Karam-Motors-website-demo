@@ -3,6 +3,7 @@ import { carName, formatRand, formatKm } from '../data/stock'
 import { SITE, mailto, whatsappUrl } from '../data/site'
 import { ArrowLong, Chevron, Close, Phone, Mail, Chat } from './icons.jsx'
 import './CarDialog.css'
+import { url } from '../lib/url'
 
 /* Native <dialog>: focus trapping, Escape to close and the inert page behind
    it all come from the browser rather than from code here. */
@@ -198,7 +199,7 @@ export default function CarDialog({ car, onClose }) {
                   <span>WhatsApp us</span>
                 </a>
               ) : null}
-              <a className="car-dialog__alt" href={'/finance/?car=' + c.slug}>
+              <a className="car-dialog__alt" href={url('/finance/?car=' + c.slug)}>
                 <ArrowLong className="car-dialog__icon car-dialog__icon--wide" />
                 <span>Estimate finance</span>
               </a>

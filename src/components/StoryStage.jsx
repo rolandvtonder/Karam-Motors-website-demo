@@ -6,6 +6,7 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { clamp, easeOut, drawStage, sizeCanvas } from '../lib/photoStage'
 import { ArrowLong } from './icons.jsx'
 import './StoryStage.css'
+import { url } from '../lib/url'
 
 const CHAPTERS = 2
 /* Shorter than the hero per chapter: this is a slow, wide drift, so a long
@@ -162,7 +163,7 @@ export default function StoryStage() {
               <span>One family name</span>
               <span>on the door.</span>
             </h1>
-            <a className="ghost-btn story__cta" href="/contact/">
+            <a className="ghost-btn story__cta" href={url('/contact/')}>
               <span>Visit us in Fourways</span>
               <ArrowLong className="ghost-btn__arrow" />
             </a>

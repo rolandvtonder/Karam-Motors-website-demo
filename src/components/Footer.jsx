@@ -2,6 +2,7 @@ import Logo from './Logo.jsx'
 import { Instagram } from './icons.jsx'
 import { SITE, FOUNDED } from '../data/site'
 import './Footer.css'
+import { url } from '../lib/url'
 
 const YEAR = new Date().getFullYear()
 
@@ -9,23 +10,23 @@ const COLUMNS = [
   {
     title: 'Buy',
     links: [
-      { label: 'Current stock', href: '/stock/' },
-      { label: 'Finance', href: '/finance/' },
-      { label: 'What’s included', href: '/#services' },
+      { label: 'Current stock', href: url('/stock/') },
+      { label: 'Finance', href: url('/finance/') },
+      { label: 'What’s included', href: url('/#services') },
     ],
   },
   {
     title: 'Sell',
     links: [
-      { label: 'Sell your car', href: '/sell/' },
-      { label: 'Finance documents', href: '/finance/#finance-docs' },
+      { label: 'Sell your car', href: url('/sell/') },
+      { label: 'Finance documents', href: url('/finance/#finance-docs') },
     ],
   },
   {
     title: 'Karam Motors',
     links: [
-      { label: 'Our story', href: '/story/' },
-      { label: 'Visit us', href: '/contact/' },
+      { label: 'Our story', href: url('/story/') },
+      { label: 'Visit us', href: url('/contact/') },
       { label: 'Instagram', href: SITE.instagram, external: true },
     ],
   },

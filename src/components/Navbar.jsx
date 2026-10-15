@@ -3,14 +3,15 @@ import Logo from './Logo.jsx'
 import { Menu, Close, Phone, Mail } from './icons.jsx'
 import { SITE, FOUNDED } from '../data/site'
 import './Navbar.css'
+import { url } from '../lib/url'
 
 const LINKS = [
-  { page: 'home', label: 'Home', href: '/' },
-  { page: 'stock', label: 'Current Stock', href: '/stock/' },
-  { page: 'sell', label: 'Sell Your Car', href: '/sell/' },
-  { page: 'finance', label: 'Finance', href: '/finance/' },
-  { page: 'story', label: 'Our Story', href: '/story/' },
-  { page: 'contact', label: 'Visit Us', href: '/contact/' },
+  { page: 'home', label: 'Home', href: url('/') },
+  { page: 'stock', label: 'Current Stock', href: url('/stock/') },
+  { page: 'sell', label: 'Sell Your Car', href: url('/sell/') },
+  { page: 'finance', label: 'Finance', href: url('/finance/') },
+  { page: 'story', label: 'Our Story', href: url('/story/') },
+  { page: 'contact', label: 'Visit Us', href: url('/contact/') },
 ]
 
 /* `solid` starts the bar on its blurred navy ground instead of transparent -
@@ -55,7 +56,7 @@ export default function Navbar({ current, solid = false }) {
           <Menu className="nav__glyph" />
         </button>
 
-        <a className="nav__brand" href="/" aria-label="Karam Motors home">
+        <a className="nav__brand" href={url('/')} aria-label="Karam Motors home">
           <Logo className="nav__logo" alt="" />
           <span className="nav__words">
             <span className="nav__mark">Karam Motors</span>

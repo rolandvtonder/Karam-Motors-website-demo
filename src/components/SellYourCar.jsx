@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { SITE, mailto } from '../data/site'
 import { ArrowLong, Check } from './icons.jsx'
 import './SellYourCar.css'
+import { url } from '../lib/url'
 
 /* The page inverts to paper here: a full-bleed photograph on the left, and the
    paper panel curving into it with a half-ellipse rather than a straight
@@ -123,7 +124,7 @@ export default function SellYourCar() {
     <section className="sell" id="sell" aria-labelledby="sell-title">
       <div className="sell__media" data-reveal>
         <img
-          src="/stock/c250-2015/04.jpg"
+          src={url('/stock/c250-2015/04.jpg')}
           alt="A grey Mercedes-Benz C-Class in profile on the Karam Motors forecourt"
           loading="lazy"
           width="1280"
