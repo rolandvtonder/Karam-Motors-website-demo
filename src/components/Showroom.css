@@ -1,0 +1,400 @@
+/* Section title left, a call link right, then a pinned rail of hairline car
+   cards: photo, make, model, year / colour / mileage, price, status. */
+
+.showroom {
+  position: relative;
+  background: var(--ink-000);
+}
+
+/* left edge of the centred shell, so the rail starts flush with the title */
+.showroom__pin {
+  --edge: max(var(--gutter), (100vw - var(--maxw)) / 2 + var(--gutter));
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vh, 2.75rem);
+  overflow: hidden;
+  padding-block: clamp(4.5rem, 10vh, 6.5rem) clamp(2rem, 5vh, 3.5rem);
+}
+
+.showroom__wash {
+  position: absolute;
+  top: 54%;
+  left: 4vw;
+  translate: 0 -50%;
+  font-family: var(--serif);
+  font-size: 24vw;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(242, 239, 233, 0.025);
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+
+.showroom__head {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.showroom__head .section-title {
+  margin-top: 0.75rem;
+}
+
+.showroom__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 2.75rem;
+  font-size: calc(0.6875rem * var(--ui-scale));
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ivory-70);
+  white-space: nowrap;
+  transition: color 0.35s var(--ease);
+}
+
+.showroom__all:hover {
+  color: var(--ivory);
+}
+
+.showroom__all-arrow {
+  width: 2rem;
+  transition: transform 0.4s var(--ease);
+}
+
+.showroom__all:hover .showroom__all-arrow {
+  transform: translateX(4px);
+}
+
+/* --- the rail ------------------------------------------------------------- */
+
+.showroom__viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.showroom__track {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(0.75rem, 1.4vw, 1.35rem);
+  margin: 0;
+  padding: 0.75rem var(--edge) 2.5rem;
+  list-style: none;
+  width: max-content;
+  will-change: transform;
+}
+
+.showroom__progress {
+  height: 1px;
+  background: var(--ivory-08);
+}
+
+.showroom__progress span {
+  display: block;
+  height: 100%;
+  background: var(--ivory-55);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* --- car card ------------------------------------------------------------- */
+
+.c-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  width: clamp(16rem, 25vw, 23rem);
+  padding: clamp(0.85rem, 1.1vw, 1.15rem);
+  border: 1px solid var(--ivory-08);
+  border-radius: 10px;
+  background: linear-gradient(
+    to bottom,
+    rgba(242, 239, 233, 0.04),
+    rgba(242, 239, 233, 0.012)
+  );
+  transition: border-color 0.5s var(--ease), background-color 0.5s var(--ease);
+  will-change: transform;
+}
+
+.c-card:hover,
+.c-card:focus-within {
+  border-color: var(--ivory-14);
+}
+
+.c-card__plate {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--ink-100);
+}
+
+.c-card__plate img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* the forecourt shots are bright - pull them toward the page */
+  filter: saturate(0.88) brightness(0.92);
+  transition: transform 0.9s var(--ease), filter 0.6s var(--ease);
+}
+
+.c-card:hover .c-card__plate img {
+  transform: scale(1.05);
+  filter: none;
+}
+
+.c-card__count {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(7, 17, 25, 0.72);
+  backdrop-filter: blur(6px);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-80);
+}
+
+.c-card__body {
+  padding-top: clamp(1rem, 1.6vh, 1.35rem);
+}
+
+.c-card__make {
+  font-weight: 400;
+  font-size: calc(0.6875rem * var(--ui-scale));
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ivory-55);
+}
+
+.c-card__model {
+  margin-top: 0.4rem;
+  font-size: calc(1.375rem * var(--ui-scale));
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ivory);
+}
+
+.c-card__model span {
+  color: var(--ivory-55);
+}
+
+.c-card__specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: calc(0.8125rem * var(--ui-scale));
+  color: var(--ivory-55);
+}
+
+.c-card__specs li + li::before {
+  content: '·';
+  margin-inline: 0.55rem;
+  color: var(--ivory-38);
+}
+
+.c-card__price {
+  margin-top: clamp(0.85rem, 1.4vh, 1.2rem);
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(1.75rem * var(--ui-scale));
+  line-height: 1;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--ivory);
+}
+
+.c-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: clamp(1rem, 1.8vh, 1.4rem);
+}
+
+.c-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: calc(0.625rem * var(--ui-scale));
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory-70);
+}
+
+.c-card__status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.c-card__status.is-ok i {
+  background: var(--ok);
+  box-shadow: 0 0 8px rgba(95, 211, 154, 0.6);
+}
+
+.c-card__status.is-warn i {
+  background: var(--warn);
+  box-shadow: 0 0 8px rgba(216, 162, 74, 0.5);
+}
+
+.c-card__status.is-mute i {
+  background: var(--ivory-38);
+}
+
+.c-card__go {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: none;
+  border: 1px solid var(--ivory-14);
+  border-radius: 50%;
+  color: var(--ivory-70);
+  transition: border-color 0.4s var(--ease), color 0.4s var(--ease),
+    background-color 0.4s var(--ease);
+}
+
+/* whole card is the target */
+.c-card__go::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+}
+
+.c-card__go:focus-visible {
+  outline: none;
+}
+
+.c-card__go:focus-visible::after {
+  outline: 2px solid var(--steel);
+  outline-offset: 3px;
+}
+
+.c-card__go-arrow {
+  width: 1.2rem;
+}
+
+.c-card:hover .c-card__go {
+  border-color: var(--ivory);
+  background: var(--ivory);
+  color: var(--ink-000);
+}
+
+/* --- the closing "ask us" card ------------------------------------------- */
+
+.c-card--ask {
+  justify-content: center;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 2.4vw, 2.25rem);
+  background: var(--ink-100);
+  border-color: var(--ivory-14);
+}
+
+.c-card__ask-title {
+  font-size: calc(clamp(1.6rem, 2.2vw, 2.1rem) * var(--scale));
+  line-height: 1.1;
+}
+
+.c-card__ask-copy {
+  font-size: calc(0.9375rem * var(--ui-scale));
+  line-height: 1.7;
+  color: var(--ivory-70);
+}
+
+.c-card__ask-cta {
+  min-width: 100%;
+  margin-top: 0.5rem;
+  gap: 1rem;
+  padding-inline: 1.4rem;
+}
+
+/* --- static fallback ------------------------------------------------------ */
+/* Narrow screens and reduced motion get a plain swipeable row: the pin is
+   released, the section collapses to its natural height, and the rail scrolls
+   under the visitor's own finger. */
+@media (max-width: 900px) {
+  .showroom {
+    height: auto !important;
+  }
+
+  .showroom__pin {
+    position: static;
+    height: auto;
+    padding-block: clamp(4rem, 9vh, 5.5rem) clamp(2rem, 5vh, 3rem);
+  }
+
+  .showroom__wash {
+    display: none;
+  }
+
+  .showroom__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .showroom__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--edge);
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .showroom__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .showroom__track {
+    transform: none !important;
+    padding-bottom: 0.75rem;
+  }
+
+  .c-card {
+    width: min(80vw, 20rem);
+    scroll-snap-align: start;
+  }
+
+  .showroom__progress {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showroom[data-static] {
+    height: auto !important;
+  }
+
+  .showroom[data-static] .showroom__pin {
+    position: static;
+    height: auto;
+  }
+
+  .showroom[data-static] .showroom__viewport {
+    overflow-x: auto;
+  }
+
+  .showroom[data-static] .showroom__track,
+  .showroom[data-static] .showroom__wash,
+  .showroom[data-static] .c-card {
+    transform: none !important;
+  }
+}

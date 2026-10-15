@@ -1,0 +1,337 @@
+/* Two columns on the brand navy: the how-it-works copy and documents on the
+   left, a raised estimator card on the right that stays in view while the
+   left column scrolls past it. */
+
+.finance {
+  position: relative;
+  padding-block: clamp(5rem, 12vh, 9rem);
+  background:
+    radial-gradient(60rem 40rem at 85% 10%, rgba(42, 60, 71, 0.45), transparent 70%),
+    var(--ink-100);
+}
+
+.finance__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.finance__title {
+  margin-top: 0.75rem;
+}
+
+.finance__lede {
+  margin-top: 1.5rem;
+  max-width: 44ch;
+  font-size: calc(clamp(1rem, 1.15vw, 1.125rem) * var(--ui-scale));
+  line-height: 1.75;
+  color: var(--ivory-70);
+}
+
+.finance__partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.finance__partners li {
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--ivory-14);
+  border-radius: 999px;
+  font-size: calc(0.75rem * var(--ui-scale));
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ivory-80);
+}
+
+.finance__steps {
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--ivory-14);
+}
+
+.finance__steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 1.15rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--ivory-08);
+}
+
+.finance__step-no {
+  font-family: var(--serif);
+  font-size: calc(0.9375rem * var(--ui-scale));
+  color: var(--ivory-38);
+}
+
+.finance__step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.finance__step-text strong {
+  font-weight: 400;
+  font-size: calc(1.0625rem * var(--ui-scale));
+  color: var(--ivory);
+}
+
+.finance__step-text small {
+  font-size: calc(0.75rem * var(--ui-scale));
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-55);
+}
+
+.finance__docs {
+  margin-top: 2.5rem;
+}
+
+.finance__docs-title {
+  font-size: calc(1.5rem * var(--ui-scale));
+}
+
+.finance__docs ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.finance__docs li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: calc(0.9375rem * var(--ui-scale));
+  line-height: 1.55;
+  color: var(--ivory-80);
+}
+
+.finance__check {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  margin-top: 0.15rem;
+  color: var(--ok);
+}
+
+/* --- estimator ------------------------------------------------------------ */
+
+.calc {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 2.6vw, 2.5rem);
+  border: 1px solid var(--ivory-14);
+  border-radius: 12px;
+  background: linear-gradient(to bottom, rgba(7, 17, 25, 0.75), rgba(7, 17, 25, 0.55));
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+.calc__head {
+  display: grid;
+  gap: 1rem;
+}
+
+.calc__car {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.calc__car label {
+  font-size: 0.875rem;
+  color: var(--ivory-70);
+}
+
+.calc__car select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.65rem 2.5rem 0.65rem 0.85rem;
+  border: 1px solid var(--ivory-14);
+  border-radius: 4px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f2efe9' stroke-width='1.25'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+      right 0.75rem center / 1.1rem no-repeat,
+    var(--ink-050);
+  color: var(--ivory);
+  font: inherit;
+  font-size: 1rem;
+  appearance: none;
+}
+
+.calc__car select option {
+  background: var(--ink-050);
+}
+
+.calc__result {
+  display: grid;
+  gap: 0.4rem;
+  padding-block: 1.2rem;
+  border-block: 1px solid var(--ivory-08);
+}
+
+.calc__result-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory-55);
+}
+
+.calc__result-value {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(clamp(2.75rem, 5vw, 4rem) * var(--scale));
+  line-height: 1;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.calc__result-value small {
+  margin-left: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--ivory-55);
+}
+
+.calc__result-meta {
+  font-size: 0.875rem;
+  color: var(--ivory-55);
+}
+
+.calc__rows {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.calc__row {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.calc__row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.calc__row-head label {
+  font-size: 0.9375rem;
+  color: var(--ivory-80);
+}
+
+.calc__row-head output {
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ivory);
+  text-align: right;
+}
+
+.calc__hint {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ivory-55);
+}
+
+/* range input: hairline track, filled to the thumb, 44px hit area */
+.calc__row input[type='range'] {
+  --fill: 50%;
+  width: 100%;
+  height: 2.75rem;
+  margin: -0.85rem 0;
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.calc__row input[type='range']::-webkit-slider-runnable-track {
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--ivory) var(--fill),
+    var(--ivory-14) var(--fill)
+  );
+}
+
+.calc__row input[type='range']::-moz-range-track {
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    var(--ivory) var(--fill),
+    var(--ivory-14) var(--fill)
+  );
+}
+
+.calc__row input[type='range']::-webkit-slider-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: calc(-0.625rem + 1px);
+  border: 0;
+  border-radius: 50%;
+  background: var(--ivory);
+  box-shadow: 0 0 0 4px rgba(242, 239, 233, 0.12);
+  appearance: none;
+  transition: box-shadow 0.3s var(--ease);
+}
+
+.calc__row input[type='range']::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ivory);
+  box-shadow: 0 0 0 4px rgba(242, 239, 233, 0.12);
+}
+
+.calc__row input[type='range']:hover::-webkit-slider-thumb {
+  box-shadow: 0 0 0 7px rgba(242, 239, 233, 0.16);
+}
+
+.calc__row input[type='range']:focus-visible {
+  outline: none;
+}
+
+.calc__row input[type='range']:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px var(--ink-000), 0 0 0 5px var(--steel);
+}
+
+.calc__row input[type='range']:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 3px var(--ink-000), 0 0 0 5px var(--steel);
+}
+
+.calc__cta {
+  margin-top: 0.5rem;
+}
+
+.calc__fine {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--ivory-55);
+}
+
+.calc__fine a {
+  color: var(--ivory-80);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* hold the estimator in view beside the copy - but only where the whole
+   card fits on screen, or the sticky would hide its own bottom half */
+@media (min-width: 961px) and (min-height: 1040px) {
+  .calc {
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .finance__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,174 @@
+.contact {
+  padding-block: clamp(5rem, 12vh, 8rem);
+  background: var(--ink-000);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: stretch;
+}
+
+.contact__title {
+  margin-top: 0.75rem;
+}
+
+.contact__moved {
+  margin-top: 1.5rem;
+  max-width: 44ch;
+  font-family: var(--serif);
+  font-size: calc(clamp(1.125rem, 1.35vw, 1.35rem) * var(--ui-scale));
+  line-height: 1.6;
+  color: var(--ivory-80);
+}
+
+.contact__list {
+  display: grid;
+  margin: 2.25rem 0 0;
+  border-top: 1px solid var(--ivory-14);
+}
+
+.contact__list > div {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--ivory-08);
+}
+
+.contact__list dt {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  align-self: start;
+  font-size: calc(0.75rem * var(--ui-scale));
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory-55);
+}
+
+.contact__list dd {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+  font-size: calc(1rem * var(--ui-scale));
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.contact__list dd a {
+  text-decoration: underline;
+  text-decoration-color: var(--ivory-38);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.3s var(--ease);
+}
+
+.contact__list dd a:hover {
+  text-decoration-color: var(--ivory);
+}
+
+.contact__icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+}
+
+.contact__hours {
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.contact__hours th {
+  padding: 0 1.25rem 0.25rem 0;
+  font-weight: 300;
+  text-align: left;
+  color: var(--ivory-70);
+}
+
+.contact__hours td {
+  padding: 0 0 0.25rem;
+  white-space: nowrap;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-top: 2.25rem;
+}
+
+.contact__alt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+  font-size: calc(0.75rem * var(--ui-scale));
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory-80);
+  transition: color 0.3s var(--ease);
+}
+
+.contact__alt:hover {
+  color: var(--ivory);
+}
+
+/* --- map ------------------------------------------------------------------ */
+
+.contact__map {
+  position: relative;
+  min-height: 26rem;
+  overflow: hidden;
+  border: 1px solid var(--ivory-08);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(42, 60, 71, 0.55), transparent 60%),
+    var(--ink-100);
+}
+
+/* the stock Google map is bright and busy - inverted and cooled it sits in
+   the page instead of on top of it */
+.contact__map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: invert(0.9) hue-rotate(180deg) saturate(0.55) brightness(0.92)
+    contrast(0.92);
+}
+
+.contact__map-link {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  background: rgba(7, 17, 25, 0.85);
+  backdrop-filter: blur(6px);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__map {
+    min-height: 20rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__list > div {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}

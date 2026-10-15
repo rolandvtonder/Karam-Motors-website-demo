@@ -1,0 +1,118 @@
+.links {
+  padding-block: clamp(4.5rem, 11vh, 8rem);
+  background: var(--ink-000);
+}
+
+.links__head {
+  margin-bottom: clamp(2rem, 5vh, 3.25rem);
+}
+
+.links__head .section-title {
+  margin-top: 0.75rem;
+}
+
+.links__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.6rem, 1.1vw, 1.1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.l-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid var(--ivory-08);
+  border-radius: 10px;
+  background: var(--ink-100);
+  isolation: isolate;
+  transition: border-color 0.5s var(--ease);
+}
+
+.l-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  /* cooled toward the page so four bright forecourt shots don't shout */
+  filter: saturate(0.6) brightness(0.72);
+  transform: scale(1.03);
+  transition: transform 1.1s var(--ease), filter 0.8s var(--ease);
+}
+
+.l-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(5, 13, 19, 0.94) 0%,
+    rgba(5, 13, 19, 0.55) 45%,
+    rgba(5, 13, 19, 0.15) 100%
+  );
+}
+
+.l-card:hover {
+  border-color: var(--ivory-38);
+}
+
+.l-card:hover img {
+  transform: scale(1.09);
+  filter: saturate(0.85) brightness(0.85);
+}
+
+.l-card__text {
+  display: grid;
+  gap: 0.4rem;
+  width: 100%;
+  padding: clamp(1rem, 1.6vw, 1.5rem);
+}
+
+.l-card__label {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(clamp(1.5rem, 2.1vw, 2.1rem) * var(--scale));
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.l-card__note {
+  font-size: calc(0.8125rem * var(--ui-scale));
+  color: var(--ivory-70);
+}
+
+.l-card__arrow {
+  width: 2.25rem;
+  margin-top: 0.6rem;
+  color: var(--ivory-70);
+  transition: transform 0.45s var(--ease), color 0.45s var(--ease);
+}
+
+.l-card:hover .l-card__arrow {
+  transform: translateX(6px);
+  color: var(--ivory);
+}
+
+@media (max-width: 960px) {
+  .links__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .l-card {
+    aspect-ratio: 4 / 3;
+  }
+
+  .links__grid {
+    grid-template-columns: 1fr;
+  }
+}

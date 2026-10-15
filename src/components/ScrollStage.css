@@ -1,0 +1,590 @@
+/* ===========================================================================
+   The pinned photo stage.
+
+   Four chapters, four shots each. The cars sit dead centre in every forecourt
+   photo, so each chapter's type is parked in a different corner with its own
+   scrim, and the canvas grade keeps the photos dark enough to carry it.
+   ======================================================================== */
+
+.stage {
+  position: relative;
+  background: var(--ground);
+}
+
+.stage__pin {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.stage__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--ground);
+}
+
+.stage__progress {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: var(--ivory-08);
+  z-index: 6;
+}
+
+.stage__progress span {
+  display: block;
+  height: 100%;
+  background: var(--ivory-55);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* --- chapters ------------------------------------------------------------- */
+
+.chapter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  padding-inline: var(--gutter);
+  opacity: 0;
+  will-change: opacity, transform;
+  z-index: 2;
+}
+
+/* each chapter gets its own scrim, tuned to where its type sits */
+.chapter::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.chapter__inner {
+  position: relative;
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chapter__title {
+  font-size: calc(clamp(2.2rem, 5vw, 4.75rem) * var(--scale));
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.005em;
+  margin-block: 1.1rem 1.5rem;
+}
+
+.chapter__title span {
+  display: block;
+}
+
+.chapter__body {
+  max-width: 36ch;
+  font-size: calc(clamp(0.95rem, 1.05vw, 1.0625rem) * var(--ui-scale));
+  line-height: 1.75;
+  color: var(--ivory-80);
+}
+
+/* ---------------------------------------------------------------- 01 hero -- */
+.chapter--hero::before {
+  background:
+    linear-gradient(
+      100deg,
+      rgba(5, 13, 19, 0.95) 0%,
+      rgba(5, 13, 19, 0.84) 34%,
+      rgba(5, 13, 19, 0.32) 62%,
+      rgba(5, 13, 19, 0) 84%
+    ),
+    linear-gradient(to top, rgba(5, 13, 19, 0.62) 0%, rgba(5, 13, 19, 0) 26%);
+}
+
+.chapter--hero {
+  align-items: center;
+}
+
+.chapter--hero .chapter__inner {
+  padding-top: 5vh;
+  align-items: flex-start;
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: calc(0.6875rem * var(--ui-scale));
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ivory-80);
+}
+
+.hero__eyebrow-rule {
+  width: clamp(1.5rem, 3vw, 2.75rem);
+  height: 1px;
+  background: var(--ivory-38);
+}
+
+.hero__eyebrow-glyph {
+  width: calc(1.1rem * var(--ui-scale));
+  height: calc(1.1rem * var(--ui-scale));
+  color: var(--ivory-55);
+}
+
+.hero__title {
+  margin-top: clamp(1rem, 2.4vh, 1.75rem);
+  font-size: calc(clamp(3rem, 7vw, 7.25rem) * var(--scale));
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-wrap: nowrap;
+}
+
+.hero__title span {
+  display: block;
+}
+
+.hero__lede {
+  margin-top: clamp(1.1rem, 2.4vh, 1.65rem);
+  max-width: 42ch;
+  font-size: calc(clamp(0.95rem, 1.05vw, 1.0625rem) * var(--ui-scale));
+  line-height: 1.75;
+  color: var(--ivory-70);
+}
+
+.hero__features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+  width: min(100%, 36rem);
+  margin: clamp(1.5rem, 3.4vh, 2.5rem) 0 0;
+  padding: clamp(1.25rem, 2.6vh, 1.75rem) 0 0;
+  border-top: 1px solid var(--ivory-14);
+  list-style: none;
+}
+
+.hero__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.hero__feature-icon {
+  width: calc(1.35rem * var(--ui-scale));
+  height: calc(1.35rem * var(--ui-scale));
+  flex: none;
+  margin-top: 0.05rem;
+  color: var(--ivory-80);
+}
+
+.hero__features h2 {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: calc(0.6875rem * var(--ui-scale));
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ivory);
+}
+
+.hero__features p {
+  margin-top: 0.45rem;
+  font-size: calc(0.8125rem * var(--ui-scale));
+  line-height: 1.6;
+  color: var(--ivory-55);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  /* the CTA's percentage min-width makes the row under-measure itself and
+     wrap the link early - size the row to its content instead */
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: clamp(1rem, 2.4vw, 2.5rem);
+  margin-top: clamp(1.5rem, 3.4vh, 2.5rem);
+}
+
+.hero__cta {
+  min-width: min(100%, calc(20rem * var(--ui-scale)));
+}
+
+.hero__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 2.75rem;
+  font-size: calc(0.6875rem * var(--ui-scale));
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ivory-80);
+  border-bottom: 1px solid var(--ivory-38);
+  transition: color 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+
+.hero__link:hover {
+  color: var(--ivory);
+  border-color: var(--ivory);
+}
+
+.hero__link-arrow {
+  width: 1.75rem;
+  transition: transform 0.4s var(--ease);
+}
+
+.hero__link:hover .hero__link-arrow {
+  transform: translateX(4px);
+}
+
+/* On short viewports shed the optional rows from the bottom up rather than
+   letting the column run into the bottom of the screen. */
+@media (max-height: 820px) and (min-width: 721px) {
+  .hero__lede {
+    display: none;
+  }
+}
+
+@media (max-height: 680px) and (min-width: 721px) {
+  .hero__features {
+    display: none;
+  }
+}
+
+/* -------------------------------------------------------- 02 inspected -- */
+.chapter--seal::before {
+  background:
+    linear-gradient(
+      95deg,
+      rgba(5, 13, 19, 0.92) 0%,
+      rgba(5, 13, 19, 0.62) 30%,
+      rgba(5, 13, 19, 0.12) 56%,
+      rgba(5, 13, 19, 0) 76%
+    ),
+    linear-gradient(to top, rgba(5, 13, 19, 0.78) 0%, rgba(5, 13, 19, 0) 46%);
+}
+
+.chapter--seal {
+  align-items: flex-end;
+}
+
+.chapter--seal .chapter__inner {
+  align-items: flex-start;
+  padding-bottom: 16vh;
+}
+
+.spec-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.spec-chips li {
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--ivory-14);
+  border-radius: 999px;
+  background: rgba(7, 17, 25, 0.35);
+  font-size: calc(0.6875rem * var(--ui-scale));
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory-80);
+  backdrop-filter: blur(6px);
+}
+
+/* ---------------------------------------------------------- 03 service -- */
+.chapter--layers::before {
+  background:
+    linear-gradient(
+      260deg,
+      rgba(5, 13, 19, 0.94) 0%,
+      rgba(5, 13, 19, 0.74) 28%,
+      rgba(5, 13, 19, 0.14) 58%,
+      rgba(5, 13, 19, 0) 78%
+    ),
+    linear-gradient(to top, rgba(5, 13, 19, 0.5) 0%, rgba(5, 13, 19, 0) 30%);
+}
+
+.chapter--layers {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.chapter--layers .chapter__inner {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.layer-list {
+  width: min(100%, 25rem);
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--ivory-14);
+}
+
+.layer-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 0.15rem 1rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--ivory-08);
+  text-align: right;
+}
+
+.layer-list__no {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font-family: var(--serif);
+  font-size: calc(0.875rem * var(--ui-scale));
+  color: var(--ivory-38);
+}
+
+.layer-list__name {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: calc(1rem * var(--ui-scale));
+  letter-spacing: 0.03em;
+  color: var(--ivory);
+}
+
+.layer-list__meta {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: calc(0.6875rem * var(--ui-scale));
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory-55);
+}
+
+/* ---------------------------------------------------------- 04 figures -- */
+.chapter--calibre::before {
+  background: linear-gradient(
+    to top,
+    rgba(5, 13, 19, 0.95) 0%,
+    rgba(5, 13, 19, 0.84) 24%,
+    rgba(5, 13, 19, 0.32) 48%,
+    rgba(5, 13, 19, 0) 70%
+  );
+}
+
+.chapter--calibre {
+  align-items: flex-end;
+}
+
+.chapter--calibre .chapter__inner {
+  padding-bottom: 15vh;
+  gap: 2.25rem;
+}
+
+.calibre__head .chapter__title {
+  margin-bottom: 0;
+}
+
+.calibre__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin: 0;
+  background: var(--ivory-08);
+  border: 1px solid var(--ivory-08);
+}
+
+.calibre__stat {
+  padding: 1.4rem 1.5rem 1.25rem;
+  background: rgba(7, 17, 25, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.calibre__stat dt {
+  display: flex;
+  align-items: baseline;
+  gap: 0.1em;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: calc(clamp(2rem, 3.4vw, 3.25rem) * var(--scale));
+  line-height: 1;
+  font-variant-numeric: tabular-nums lining-nums;
+  color: var(--ivory);
+}
+
+.calibre__stat dt em {
+  font-style: normal;
+  font-size: 0.5em;
+  color: var(--ivory-55);
+}
+
+.calibre__stat dd {
+  margin: 0.7rem 0 0;
+  font-size: calc(0.6875rem * var(--ui-scale));
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ivory-55);
+}
+
+/* --- HUD ------------------------------------------------------------------ */
+
+/* which car is on screen - shows from chapter 02 onward, so the hero's
+   opening frame stays clean */
+.readout {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 8.1vh;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: calc(0.6875rem * var(--ui-scale));
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory-38);
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+
+.stage:not([data-chapter='1']) .readout {
+  opacity: 1;
+}
+
+/* chapter 04's stats band runs the full width at the bottom - the readout
+   would sit on top of it */
+.stage[data-chapter='4'] .readout {
+  opacity: 0;
+}
+
+.readout__label {
+  color: var(--ivory-80);
+}
+
+.readout__sep {
+  width: 1.5rem;
+  height: 1px;
+  background: var(--ivory-14);
+}
+
+/* --- responsive ----------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .calibre__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chapter--layers {
+    justify-content: flex-start;
+  }
+
+  .chapter--layers .chapter__inner {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .chapter--layers .layer-list li {
+    text-align: left;
+  }
+
+  .chapter--layers::before {
+    background:
+      linear-gradient(
+        95deg,
+        rgba(5, 13, 19, 0.92) 0%,
+        rgba(5, 13, 19, 0.66) 34%,
+        rgba(5, 13, 19, 0.1) 70%
+      ),
+      linear-gradient(to top, rgba(5, 13, 19, 0.7) 0%, rgba(5, 13, 19, 0) 40%);
+  }
+}
+
+@media (max-width: 720px) {
+  .hero__title {
+    /* "PRE-OWNED." is the long line: at 14vw it fills a 390 column with
+       the gutter to spare and still holds at 360 */
+    font-size: calc(clamp(2.4rem, 14vw, 5rem) * var(--scale));
+  }
+
+  .chapter--hero .chapter__inner,
+  .chapter--seal .chapter__inner,
+  .chapter--calibre .chapter__inner {
+    padding-bottom: 14vh;
+  }
+
+  .chapter--hero {
+    align-items: flex-end;
+  }
+
+  .chapter--hero .chapter__inner {
+    padding-top: 0;
+  }
+
+  /* on a phone the photo sits in the top half and fades into the ground, so
+     the scrims only need to steady the lower half */
+  .chapter--hero::before,
+  .chapter--seal::before,
+  .chapter--layers::before,
+  .chapter--calibre::before {
+    background: linear-gradient(
+      to top,
+      rgba(5, 13, 19, 0.92) 0%,
+      rgba(5, 13, 19, 0.7) 40%,
+      rgba(5, 13, 19, 0) 64%
+    );
+  }
+
+  .hero__cta {
+    width: 100%;
+  }
+
+  .hero__lede,
+  .hero__features {
+    display: none;
+  }
+
+  .hero__actions {
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .hero__eyebrow {
+    letter-spacing: 0.24em;
+  }
+
+  .readout {
+    display: none;
+  }
+
+  .chapter__title {
+    font-size: calc(clamp(2.2rem, 11vw, 3.25rem) * var(--scale));
+  }
+
+  .chapter--layers {
+    align-items: flex-end;
+  }
+
+  .chapter--layers .chapter__inner {
+    padding-bottom: 12vh;
+  }
+
+  .layer-list li {
+    padding: 0.7rem 0;
+  }
+
+  .calibre__stat {
+    padding: 1rem 1.1rem;
+  }
+}
+
+/* scrubbing is scroll-coupled, so it stays - the user drives it. The
+   chapters' rise-in is what goes. */
+@media (prefers-reduced-motion: reduce) {
+  .chapter {
+    transform: none !important;
+  }
+}

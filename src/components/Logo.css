@@ -1,0 +1,27 @@
+/* Window onto the disc inside /brand/logo.png.
+   Source 227 x 221, disc bbox x 30-217 (188) y 11-197 (187):
+     image width  = 227 / 188 = 120.7% of the disc
+     left offset  = 30 / 188  = 16.0%
+     top offset   = 11 / 187  = 5.9% */
+.logo {
+  --size: 3rem;
+  position: relative;
+  display: block;
+  flex: none;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  overflow: hidden;
+  /* hairline ring so the disc separates from grounds of the same navy */
+  box-shadow: 0 0 0 1px rgba(242, 239, 233, 0.12);
+}
+
+.logo img {
+  position: absolute;
+  width: 120.7%;
+  max-width: none;
+  height: auto;
+  left: -16%;
+  top: -5.9%;
+  user-select: none;
+}

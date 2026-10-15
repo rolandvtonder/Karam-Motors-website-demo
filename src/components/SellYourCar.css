@@ -1,0 +1,363 @@
+/* The one light section. Everything inside flips to paper ink - the dark
+   tokens would be invisible here, so this block overrides them locally. */
+
+.sell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  align-items: stretch;
+  background: var(--paper);
+  color: var(--paper-ink);
+  /* the paper curves into the dark section above it */
+  border-start-start-radius: clamp(2rem, 10vw, 11rem);
+  /* clip, not hidden: hidden would make this a scroll container and the
+     sticky photo inside would stop sticking */
+  overflow: clip;
+}
+
+.sell :focus-visible {
+  outline-color: var(--paper-ink);
+}
+
+.sell__media {
+  position: relative;
+  min-height: clamp(24rem, 62vh, 44rem);
+  background: var(--ink-100);
+}
+
+/* the form makes this section much taller than a screen - a full-height
+   cover crop would zoom the car down to a door handle, so the photo holds at
+   viewport height and stays put while the form scrolls past it */
+.sell__media img {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100svh;
+  object-fit: cover;
+  object-position: 40% 60%;
+}
+
+/* the paper bulges left into the photo as a half-ellipse, which is what makes
+   the edge read as a curve rather than a crop */
+.sell__media::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  right: -1px;
+  width: 22%;
+  background: var(--paper);
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+}
+
+.sell__body {
+  display: flex;
+  align-items: center;
+  padding: clamp(3.5rem, 9vh, 6.5rem) var(--gutter) clamp(3.5rem, 9vh, 6.5rem)
+    clamp(1rem, 2vw, 2rem);
+}
+
+.sell__inner {
+  width: min(100%, 40rem);
+}
+
+.sell__eyebrow {
+  font-size: calc(0.75rem * var(--ui-scale));
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--paper-ink-55);
+}
+
+.sell__title {
+  margin-top: 0.75rem;
+  font-size: calc(clamp(2.25rem, 4vw, 3.75rem) * var(--scale));
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.sell__note {
+  margin: 1.5rem 0 0;
+  padding-left: 1.25rem;
+  border-left: 2px solid rgba(15, 34, 45, 0.35);
+}
+
+.sell__note p {
+  font-family: var(--serif);
+  font-size: calc(clamp(1.125rem, 1.3vw, 1.3rem) * var(--ui-scale));
+  line-height: 1.6;
+  color: var(--paper-ink-70);
+}
+
+/* --- form ----------------------------------------------------------------- */
+
+.sell__form {
+  display: grid;
+  gap: 2rem;
+  margin-top: clamp(2rem, 4vh, 2.75rem);
+}
+
+.sell__form fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.sell__form > fieldset > legend {
+  margin-bottom: 1rem;
+  padding: 0;
+  font-size: calc(0.6875rem * var(--ui-scale));
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--paper-ink-55);
+}
+
+.sell__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.25rem;
+}
+
+.sell__field {
+  display: grid;
+  align-content: start;
+  gap: 0.4rem;
+}
+
+.sell__field--wide {
+  grid-column: 1 / -1;
+}
+
+.sell__field label,
+.sell__radios legend {
+  font-size: calc(0.875rem * var(--ui-scale));
+  font-weight: 400;
+  color: var(--paper-ink);
+}
+
+.sell__field abbr {
+  text-decoration: none;
+  color: var(--error-paper);
+}
+
+.sell__optional {
+  margin-left: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--paper-ink-55);
+}
+
+.sell__field input,
+.sell__field select,
+.sell__field textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--paper-line);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--paper-ink);
+  /* 16px stops iOS zooming the page on focus */
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.sell__field textarea {
+  resize: vertical;
+}
+
+.sell__field input::placeholder,
+.sell__field textarea::placeholder {
+  color: rgba(15, 34, 45, 0.42);
+}
+
+.sell__field input:focus,
+.sell__field select:focus,
+.sell__field textarea:focus {
+  outline: none;
+  border-color: var(--paper-ink);
+  box-shadow: 0 0 0 1px var(--paper-ink);
+}
+
+.sell__field [aria-invalid='true'] {
+  border-color: var(--error-paper);
+}
+
+.sell__error {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--error-paper);
+}
+
+.sell__radios {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.sell__radios legend {
+  margin-bottom: 0.4rem;
+  padding: 0;
+}
+
+.sell__radios > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sell__radios label {
+  position: relative;
+  cursor: pointer;
+}
+
+.sell__radios input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.sell__radios span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--paper-line);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.9375rem;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+
+.sell__radios input:checked + span {
+  background: var(--paper-ink);
+  border-color: var(--paper-ink);
+  color: var(--paper);
+}
+
+.sell__radios input:focus-visible + span {
+  outline: 2px solid var(--paper-ink);
+  outline-offset: 2px;
+}
+
+.sell__submit {
+  display: grid;
+  gap: 0.85rem;
+}
+
+/* the shared ghost button is built for the dark ground - re-ink it for paper */
+.sell__cta {
+  --btn-line: rgba(15, 34, 45, 0.35);
+  --btn-fill: var(--paper-ink);
+  --btn-fill-ink: var(--paper);
+  justify-self: start;
+  color: var(--paper-ink);
+}
+
+.sell__fine {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--paper-ink-55);
+}
+
+/* --- sent ----------------------------------------------------------------- */
+
+.sell__done {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.25rem;
+  padding: 1.5rem;
+  border: 1px solid var(--paper-line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.sell__done-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: none;
+  color: #1d7a4c;
+}
+
+.sell__done h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.sell__done p {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--paper-ink-70);
+}
+
+.sell__done a {
+  color: var(--paper-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sell__again {
+  margin-top: 1rem;
+  min-height: 2.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 900px) {
+  .sell {
+    grid-template-columns: 1fr;
+    border-start-start-radius: clamp(1.5rem, 8vw, 4rem);
+    border-start-end-radius: clamp(1.5rem, 8vw, 4rem);
+  }
+
+  .sell__media {
+    min-height: clamp(16rem, 40vh, 24rem);
+  }
+
+  .sell__media img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+  }
+
+  /* once the columns stack, the paper rises into the photo as a half-ellipse
+     dome along the bottom edge instead */
+  .sell__media::after {
+    top: auto;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    width: auto;
+    height: 16%;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+
+  .sell__body {
+    padding: clamp(1.5rem, 4vh, 2.5rem) var(--gutter) clamp(3rem, 7vh, 4.5rem);
+  }
+
+  .sell__inner {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .sell__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sell__cta {
+    min-width: 100%;
+  }
+}
