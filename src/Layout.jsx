@@ -1,6 +1,7 @@
 import { useReveal } from './hooks/useReveal'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
+import WhatsAppButton from './components/WhatsAppButton.jsx'
 import './styles/globals.css'
 
 /* Every page shares the same chrome: skip link, fixed nav, footer, and the
@@ -25,6 +26,7 @@ export default function Layout({ page, revealDeps = [], before = null, children 
       </main>
 
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }

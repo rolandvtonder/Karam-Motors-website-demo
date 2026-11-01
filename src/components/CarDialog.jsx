@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { carName, formatRand, formatKm } from '../data/stock'
 import { SITE, mailto, whatsappUrl } from '../data/site'
-import { ArrowLong, Chevron, Close, Phone, Mail, Chat } from './icons.jsx'
+import { ArrowLong, Chevron, Close, Phone, Mail, WhatsApp } from './icons.jsx'
 import './CarDialog.css'
 import { url } from '../lib/url'
 
@@ -199,7 +199,7 @@ export default function CarDialog({ car, onClose }) {
               </a>
               {wa ? (
                 <a className="car-dialog__alt" href={wa} target="_blank" rel="noreferrer">
-                  <Chat className="car-dialog__icon" />
+                  <WhatsApp className="car-dialog__icon" />
                   <span>WhatsApp us</span>
                 </a>
               ) : null}

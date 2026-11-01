@@ -13,10 +13,9 @@ export const SITE = {
   phone: { display: '011 792 9339', href: 'tel:+27117929339' },
   cell: { display: '083 601 8044', href: 'tel:+27836018044' },
   email: 'gtkaram1@mweb.co.za',
-  /* Leave empty until there is a WhatsApp business number - every WhatsApp
-     button on the page hides itself while this is blank. Digits only, with
-     the country code, e.g. '27821234567'. */
-  whatsapp: '',
+  /* Greg's cell. Every WhatsApp button hides itself if this is blank. Digits
+     only, with the country code. */
+  whatsapp: '27836018044',
   instagram: 'https://www.instagram.com/karammotorscc/',
   hours: [
     { days: 'Monday – Friday', time: '08:00 – 17:00' },

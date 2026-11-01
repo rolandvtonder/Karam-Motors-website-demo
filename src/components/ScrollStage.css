@@ -434,11 +434,12 @@
 /* --- HUD ------------------------------------------------------------------ */
 
 /* which car is on screen - shows from chapter 02 onward, so the hero's
-   opening frame stays clean */
+   opening frame stays clean. Never lower than 6rem: the floating WhatsApp
+   button owns the corner below it. */
 .readout {
   position: absolute;
   right: var(--gutter);
-  bottom: 8.1vh;
+  bottom: max(8.1vh, 6rem);
   display: flex;
   align-items: center;
   gap: 0.65rem;

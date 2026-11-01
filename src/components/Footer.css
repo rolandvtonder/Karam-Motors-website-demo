@@ -112,6 +112,14 @@
   color: var(--ivory);
 }
 
+/* below this the page gutter is narrower than the floating WhatsApp button,
+   so leave room for it under the last line of the page */
+@media (max-width: 1400px) {
+  .footer {
+    padding-bottom: 6.5rem;
+  }
+}
+
 @media (max-width: 860px) {
   .footer__top {
     grid-template-columns: 1fr;

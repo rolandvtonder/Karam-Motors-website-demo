@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { SITE, mapsUrl, whatsappUrl } from '../data/site'
-import { ArrowLong, Pin, Phone, Mail, Clock, Chat } from './icons.jsx'
+import { ArrowLong, Pin, Phone, Mail, Clock, WhatsApp } from './icons.jsx'
 import './Contact.css'
 
 /* The map is a plain Google Maps embed (no API key). It is only attached once
@@ -111,7 +111,7 @@ export default function Contact() {
             </a>
             {wa ? (
               <a className="contact__alt" href={wa} target="_blank" rel="noreferrer">
-                <Chat className="contact__icon" />
+                <WhatsApp className="contact__icon" />
                 <span>WhatsApp us</span>
               </a>
             ) : (
