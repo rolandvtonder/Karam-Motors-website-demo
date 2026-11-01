@@ -226,7 +226,7 @@ export default function Finance() {
 
           <a
             className="solid-btn calc__cta"
-            href={mailto(SITE.financeEmail, 'Finance application', enquiry)}
+            href={mailto(SITE.email, 'Finance application', enquiry)}
           >
             <span>Start an application</span>
             <ArrowLong className="solid-btn__arrow" />
@@ -234,7 +234,7 @@ export default function Finance() {
           <p className="calc__fine">
             An estimate only, not a quote. It excludes initiation and monthly
             service fees, insurance and licensing. Applications go to{' '}
-            <a href={'mailto:' + SITE.financeEmail}>{SITE.financeEmail}</a>.
+            <a href={'mailto:' + SITE.email}>{SITE.email}</a>.
           </p>
         </div>
       </div>

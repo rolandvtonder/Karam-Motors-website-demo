@@ -45,8 +45,8 @@ export default function Contact() {
           </h1>
           <p className="contact__moved" data-reveal style={{ '--i': 1 }}>
             We&rsquo;ve moved. After more than four decades on Oxford Street in
-            Randburg, you&rsquo;ll now find us at the Gardens Shopping Centre in
-            Fourways.
+            Randburg, you&rsquo;ll now find us on the corner of Frederick and
+            Cedar Road in Cedar Lakes.
           </p>
 
           <dl className="contact__list" data-reveal style={{ '--i': 2 }}>
@@ -77,7 +77,6 @@ export default function Contact() {
               </dt>
               <dd>
                 <a href={'mailto:' + SITE.email}>{SITE.email}</a>
-                <a href={'mailto:' + SITE.financeEmail}>{SITE.financeEmail}</a>
               </dd>
             </div>
             <div>
@@ -122,7 +121,7 @@ export default function Contact() {
         <div className="contact__map" ref={mapRef} data-reveal style={{ '--i': 1 }}>
           {showMap ? (
             <iframe
-              title="Map showing Karam Motors at the Gardens Shopping Centre, Fourways"
+              title="Map showing Karam Motors on the corner of Frederick and Cedar Road, Cedar Lakes"
               src={EMBED}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

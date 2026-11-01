@@ -7,12 +7,11 @@ export const SITE = {
   name: 'Karam Motors',
   tagline: 'Quality pre-owned cars since 1980',
   address: {
-    lines: ['Shop 0A, Gardens Shopping Centre', 'Uranium Road, Fourways', 'Johannesburg'],
-    mapQuery: 'Gardens Shopping Centre, Uranium Road, Fourways, Johannesburg',
+    lines: ['Cnr Frederick and Cedar Road', 'Cedar Lakes'],
+    mapQuery: 'Cnr Frederick Road and Cedar Road, Cedar Lakes, Johannesburg',
   },
   phone: { display: '011 792 9339', href: 'tel:+27117929339' },
-  email: 'sales@karammotors.co.za',
-  financeEmail: 'finance@karammotors.co.za',
+  email: 'gtkaram1@mweb.co.za',
   /* Leave empty until there is a WhatsApp business number - every WhatsApp
      button on the page hides itself while this is blank. Digits only, with
      the country code, e.g. '27821234567'. */
