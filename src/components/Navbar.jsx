@@ -116,6 +116,9 @@ export default function Navbar({ current, solid = false }) {
           <a className="eyebrow" href={SITE.phone.href}>
             {SITE.phone.display}
           </a>
+          <a className="eyebrow" href={SITE.cell.href}>
+            {SITE.cell.display}
+          </a>
         </footer>
       </div>
     </>

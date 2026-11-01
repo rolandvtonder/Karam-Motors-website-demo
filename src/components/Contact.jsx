@@ -67,7 +67,12 @@ export default function Contact() {
                 <span>Phone</span>
               </dt>
               <dd>
-                <a href={SITE.phone.href}>{SITE.phone.display}</a>
+                <span>
+                  <a href={SITE.phone.href}>{SITE.phone.display}</a> (office)
+                </span>
+                <span>
+                  <a href={SITE.cell.href}>{SITE.cell.display}</a> (Greg, cell)
+                </span>
               </dd>
             </div>
             <div>

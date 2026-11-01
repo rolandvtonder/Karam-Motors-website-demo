@@ -89,6 +89,7 @@ export default function Footer() {
           </p>
           <p>
             <a href={SITE.phone.href}>{SITE.phone.display}</a> ·{' '}
+            <a href={SITE.cell.href}>{SITE.cell.display}</a> ·{' '}
             <a href={'mailto:' + SITE.email}>{SITE.email}</a>
           </p>
         </div>

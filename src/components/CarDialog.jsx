@@ -193,6 +193,10 @@ export default function CarDialog({ car, onClose }) {
                 <Phone className="car-dialog__icon" />
                 <span>Call {SITE.phone.display}</span>
               </a>
+              <a className="car-dialog__alt" href={SITE.cell.href}>
+                <Phone className="car-dialog__icon" />
+                <span>Call Greg {SITE.cell.display}</span>
+              </a>
               {wa ? (
                 <a className="car-dialog__alt" href={wa} target="_blank" rel="noreferrer">
                   <Chat className="car-dialog__icon" />

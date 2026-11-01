@@ -11,6 +11,7 @@ export const SITE = {
     mapQuery: 'Cnr Frederick Road and Cedar Road, Cedar Lakes, Johannesburg',
   },
   phone: { display: '011 792 9339', href: 'tel:+27117929339' },
+  cell: { display: '083 601 8044', href: 'tel:+27836018044' },
   email: 'gtkaram1@mweb.co.za',
   /* Leave empty until there is a WhatsApp business number - every WhatsApp
      button on the page hides itself while this is blank. Digits only, with
