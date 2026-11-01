@@ -42,7 +42,7 @@ export default function Footer() {
               <Logo className="footer__logo" alt="" />
               <div>
                 <span className="footer__mark">Karam Motors</span>
-                <span className="footer__city">Est. {FOUNDED} · Fourways</span>
+                <span className="footer__city">Est. {FOUNDED} · Cedar Lakes</span>
               </div>
             </div>
             <p className="footer__blurb">

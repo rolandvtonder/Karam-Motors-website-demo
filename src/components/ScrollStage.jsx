@@ -176,7 +176,7 @@ export default function ScrollStage({ imagesRef, started }) {
             <p className="hero__lede">
               Quality pre-owned cars with full service histories, each one
               tested, inspected and valeted before it reaches the floor. A
-              Fourways family dealership, doing it properly since {FOUNDED}.
+              Cedar Lakes family dealership, doing it properly since {FOUNDED}.
             </p>
 
             <ul className="hero__features">

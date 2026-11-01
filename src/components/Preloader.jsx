@@ -39,7 +39,7 @@ export default function Preloader({ progress, ready, onDone, total }) {
       <div className="preloader__brand">
         <Logo className="preloader__logo" />
         <span className="preloader__mark">Karam Motors</span>
-        <span className="preloader__city">Est. {FOUNDED} · Fourways</span>
+        <span className="preloader__city">Est. {FOUNDED} · Cedar Lakes</span>
       </div>
 
       <div className="preloader__meter" aria-hidden="true">

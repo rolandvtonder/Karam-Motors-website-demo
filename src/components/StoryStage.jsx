@@ -27,7 +27,7 @@ const TIMELINE = [
   },
   {
     no: 'Today',
-    name: 'A new home in Fourways',
+    name: 'A new home in Cedar Lakes',
     meta: 'With Samantha, Richard and Michael',
   },
 ]
@@ -164,7 +164,7 @@ export default function StoryStage() {
               <span>on the door.</span>
             </h1>
             <a className="ghost-btn story__cta" href={url('/contact/')}>
-              <span>Visit us in Fourways</span>
+              <span>Visit us in Cedar Lakes</span>
               <ArrowLong className="ghost-btn__arrow" />
             </a>
           </div>
@@ -176,7 +176,7 @@ export default function StoryStage() {
             <p className="eyebrow">Our story</p>
             <h2 className="story__title story__title--sm">
               <span>From Oxford Street</span>
-              <span>to Fourways.</span>
+              <span>to Cedar Lakes.</span>
             </h2>
             <ol className="timeline">
               {TIMELINE.map((step) => (

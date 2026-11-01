@@ -60,7 +60,7 @@ export default function Navbar({ current, solid = false }) {
           <Logo className="nav__logo" alt="" />
           <span className="nav__words">
             <span className="nav__mark">Karam Motors</span>
-            <span className="nav__city">Est. {FOUNDED} · Fourways</span>
+            <span className="nav__city">Est. {FOUNDED} · Cedar Lakes</span>
           </span>
         </a>
 

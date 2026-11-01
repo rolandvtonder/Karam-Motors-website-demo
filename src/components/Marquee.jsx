@@ -7,7 +7,7 @@ const WORDS = [
   'Free trade-in valuation',
   'Finance through ' + FINANCE_PARTNERS.join(' · '),
   'Roadworthy certified',
-  'Fourways · Johannesburg',
+  'Cedar Lakes · Johannesburg',
 ]
 
 /* A quiet transition strip between the pinned rail and the page proper, so
