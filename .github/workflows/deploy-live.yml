@@ -2,6 +2,10 @@
 # server over FTP. Run it by hand: Actions -> "Deploy to karammotors.co.za"
 # -> Run workflow.
 #
+# NOTE (2026-11-10): the xneelo firewall resets FTP data connections from
+# GitHub's runners (ECONNRESET), so use scripts/upload-live.ps1 from a PC
+# in South Africa instead unless Dewald allows GitHub's IP ranges.
+#
 # One-time setup: repo Settings -> Secrets and variables -> Actions, add
 #   FTP_SERVER    ftp.karammotors.co.za
 #   FTP_USERNAME  karamqcvea  (the FTP login, not the domain name)

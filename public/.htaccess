@@ -3,12 +3,11 @@
 Options -Indexes
 DirectoryIndex index.html
 
-# Send everyone to https. Leave this switched off until
-# https://karammotors.co.za opens without a certificate warning, then
-# remove the # from the three lines below and deploy again.
-# RewriteEngine On
-# RewriteCond %{HTTPS} !=on
-# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Send everyone to https (the xneelo certificate covers both
+# karammotors.co.za and www.karammotors.co.za).
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Built JS/CSS have a content hash in the file name, so they can be cached
 # for a year; pages are re-checked on every visit so new stock shows up.
