@@ -9,9 +9,9 @@
 #
 # The xneelo server does not offer FTP over TLS, so this uses plain FTP.
 #
-# Only files this workflow uploaded are ever replaced or removed; anything
-# else already on the server is left alone, so clear the old WordPress site
-# by hand (after a backup) before the first run.
+# Normally only files this workflow uploaded are replaced or removed. On the
+# first run, tick "clear_old_site" to wipe the old WordPress site from the
+# web folder before uploading - only after a backup and the client's OK.
 name: Deploy to karammotors.co.za
 
 on:
@@ -26,6 +26,10 @@ on:
         default: ftp
         type: choice
         options: [ftp, ftps]
+      clear_old_site:
+        description: Delete EVERYTHING in the web folder first (old WordPress site). Only after a backup and the client's OK.
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -61,3 +65,5 @@ jobs:
           protocol: ${{ inputs.protocol }}
           local-dir: ./dist/
           server-dir: ${{ inputs.server_dir }}
+          dangerous-clean-slate: ${{ inputs.clear_old_site }}
+          timeout: 600000
