@@ -112,6 +112,18 @@
   color: var(--ivory);
 }
 
+.footer__credit a {
+  color: var(--ivory-80);
+  text-decoration: underline;
+  text-decoration-color: var(--ivory-08);
+  text-underline-offset: 0.2em;
+  transition: color 0.3s var(--ease), text-decoration-color 0.3s var(--ease);
+}
+
+.footer__credit a:hover {
+  text-decoration-color: currentColor;
+}
+
 /* below this the page gutter is narrower than the floating WhatsApp button,
    so leave room for it under the last line of the page */
 @media (max-width: 1400px) {

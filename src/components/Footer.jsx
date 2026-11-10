@@ -92,6 +92,16 @@ export default function Footer() {
             <a href={SITE.cell.href}>{SITE.cell.display}</a> ·{' '}
             <a href={'mailto:' + SITE.email}>{SITE.email}</a>
           </p>
+          <p className="footer__credit">
+            Website by{' '}
+            <a
+              href="https://rolandwebdesign.co.za"
+              target="_blank"
+              rel="noopener"
+            >
+              rolandwebdesign.co.za
+            </a>
+          </p>
         </div>
       </div>
     </footer>
