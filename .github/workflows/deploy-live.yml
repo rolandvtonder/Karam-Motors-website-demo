@@ -1,0 +1,61 @@
+# Builds the site for karammotors.co.za and uploads it to the xneelo web
+# server over FTP. Run it by hand: Actions -> "Deploy to karammotors.co.za"
+# -> Run workflow.
+#
+# One-time setup: repo Settings -> Secrets and variables -> Actions, add
+#   FTP_SERVER    ftp.karammotors.co.za
+#   FTP_USERNAME  karammotors.co.za
+#   FTP_PASSWORD  (the konsoleH / FTP password)
+#
+# Only files this workflow uploaded are ever replaced or removed; anything
+# else already on the server is left alone, so clear the old WordPress site
+# by hand (after a backup) before the first run.
+name: Deploy to karammotors.co.za
+
+on:
+  workflow_dispatch:
+    inputs:
+      server_dir:
+        description: Web folder on the server (must end with /)
+        default: public_html/
+        required: true
+      protocol:
+        description: ftps (encrypted) or ftp if ftps will not connect
+        default: ftps
+        type: choice
+        options: [ftps, ftp]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: live
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build for the domain root
+        run: npm run build
+        env:
+          BASE_PATH: /
+
+      - name: Upload to the server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ inputs.protocol }}
+          local-dir: ./dist/
+          server-dir: ${{ inputs.server_dir }}

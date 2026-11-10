@@ -25,3 +25,6 @@ dist-ssr
 
 # Local Claude Code preview config
 .claude/
+
+# Client login documents - never commit
+*.pdf
