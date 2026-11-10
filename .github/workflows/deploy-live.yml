@@ -4,8 +4,10 @@
 #
 # One-time setup: repo Settings -> Secrets and variables -> Actions, add
 #   FTP_SERVER    ftp.karammotors.co.za
-#   FTP_USERNAME  karammotors.co.za
+#   FTP_USERNAME  karamqcvea  (the FTP login, not the domain name)
 #   FTP_PASSWORD  (the konsoleH / FTP password)
+#
+# The xneelo server does not offer FTP over TLS, so this uses plain FTP.
 #
 # Only files this workflow uploaded are ever replaced or removed; anything
 # else already on the server is left alone, so clear the old WordPress site
@@ -20,10 +22,10 @@ on:
         default: public_html/
         required: true
       protocol:
-        description: ftps (encrypted) or ftp if ftps will not connect
-        default: ftps
+        description: ftp (the server has no TLS) or ftps if that is ever added
+        default: ftp
         type: choice
-        options: [ftps, ftp]
+        options: [ftp, ftps]
 
 permissions:
   contents: read
