@@ -68,10 +68,10 @@ export default function Navbar({ current, solid = false }) {
           <a className="nav__icon" href={'mailto:' + SITE.email} aria-label={'Email ' + SITE.email}>
             <Mail className="nav__glyph" />
           </a>
-          <a className="nav__call" href={SITE.phone.href}>
+          <a className="nav__call" href={SITE.cell.href}>
             <Phone className="nav__glyph" />
-            <span className="nav__call-text">{SITE.phone.display}</span>
-            <span className="sr-only">Call Karam Motors</span>
+            <span className="nav__call-text">{SITE.cell.display}</span>
+            <span className="sr-only">Call Greg</span>
           </a>
         </div>
       </header>

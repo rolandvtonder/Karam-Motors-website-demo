@@ -191,10 +191,7 @@ export default function ScrollStage({ imagesRef, started }) {
                 <SealCheck className="hero__feature-icon" />
                 <div>
                   <h2>Finance arranged</h2>
-                  <p>
-                    Applications through {FINANCE_PARTNERS.length} major South
-                    African lenders.
-                  </p>
+                  <p>Approved with all five major South African banks.</p>
                 </div>
               </li>
             </ul>
