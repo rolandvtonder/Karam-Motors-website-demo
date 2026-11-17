@@ -83,7 +83,7 @@ export default function Navbar({ current, solid = false }) {
         aria-modal="true"
         aria-label="Site menu"
         // hidden from the tree entirely while closed so tab order stays sane
-        {...(open ? {} : { inert: '' })}
+        inert={!open}
       >
         <div className="menu__bar">
           <span className="eyebrow">Menu</span>
