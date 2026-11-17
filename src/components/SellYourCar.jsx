@@ -124,11 +124,11 @@ export default function SellYourCar() {
     <section className="sell" id="sell" aria-labelledby="sell-title">
       <div className="sell__media" data-reveal>
         <img
-          src={url('/stock/c250-2015/04.jpg')}
-          alt="A grey Mercedes-Benz C-Class in profile on the Karam Motors forecourt"
+          src={url('/stock/cla-2015/04.jpg')}
+          alt="A silver Mercedes-Benz CLA in profile on the forecourt"
           loading="lazy"
           width="1280"
-          height="926"
+          height="960"
         />
       </div>
 

@@ -11,25 +11,25 @@ const CARDS = [
     href: url('/stock/'),
     label: 'Current stock',
     note: STOCK.length + ' cars on the floor',
-    image: url('/stock/c250-2015/01.jpg'),
+    image: url('/stock/xc60-2021/01.jpg'),
   },
   {
     href: url('/sell/'),
     label: 'Sell your car',
     note: 'Appraisal within 48 hours',
-    image: url('/stock/pajero-2008/01.jpg'),
+    image: url('/stock/ranger-xlt-2021/01.jpg'),
   },
   {
     href: url('/finance/'),
     label: 'Finance',
     note: 'Five lenders, one application',
-    image: url('/stock/i20-2021/03.jpg'),
+    image: url('/stock/countryman-2017/01.jpg'),
   },
   {
     href: url('/story/'),
     label: 'Our story',
     note: 'Two generations since 1980',
-    image: url('/stock/almera-2014/07.jpg'),
+    image: url('/stock/a1-2013/01.jpg'),
   },
 ]
 

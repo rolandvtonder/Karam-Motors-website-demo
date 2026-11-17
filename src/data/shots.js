@@ -18,21 +18,21 @@ const walk = (slug, label, nums, start) =>
   )
 
 export const HERO_SHOTS = [
-  ...walk('c250-2015', '2015 Mercedes-Benz C250', ['01', '08', '02', '06'], 0),
-  ...walk('pajero-2008', '2008 Mitsubishi Pajero', ['01', '05', '08', '02'], 4),
-  ...walk('i20-2021', '2021 Hyundai i20', ['01', '03', '08', '05'], 8),
-  ...walk('swift-2019', '2019 Suzuki Swift', ['08', '01'], 12),
-  ...walk('almera-2014', '2014 Nissan Almera', ['03', '01'], 14),
+  ...walk('xc60-2021', '2021 Volvo XC60', ['01', '02', '04', '05'], 0),
+  ...walk('cla-2015', '2015 Mercedes-Benz CLA 220d', ['01', '02', '04', '06'], 4),
+  ...walk('ranger-xlt-2021', '2021 Ford Ranger XLT', ['01', '05', '02', '07'], 8),
+  ...walk('countryman-2017', '2017 MINI Countryman', ['01', '03'], 12),
+  ...walk('a1-2013', '2013 Audi A1', ['01', '03'], 14),
 ]
 
 /* the story stage near the foot of the page: a slower, wider drift */
 export const STORY_SHOTS = [
-  shot(url('/stock/almera-2014/07.jpg'), 0, { zoom: [1.0, 1.08] }),
-  shot(url('/stock/c250-2015/05.jpg'), 1, { zoom: [1.0, 1.08] }),
-  shot(url('/stock/pajero-2008/04.jpg'), 2, { zoom: [1.0, 1.08] }),
-  shot(url('/stock/i20-2021/06.jpg'), 3, { zoom: [1.0, 1.08] }),
-  shot(url('/stock/swift-2019/05.jpg'), 4, { zoom: [1.0, 1.08] }),
-  shot(url('/stock/almera-2014/05.jpg'), 5, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/a1-2013/07.jpg'), 0, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/xc60-2021/04.jpg'), 1, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/countryman-2017/02.jpg'), 2, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/a3-2016/03.jpg'), 3, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/hilux-1999/03.jpg'), 4, { zoom: [1.0, 1.08] }),
+  shot(url('/stock/ranger-xlt-2021/06.jpg'), 5, { zoom: [1.0, 1.08] }),
 ]
 
 export const HERO_URLS = HERO_SHOTS.map((s) => s.src)
