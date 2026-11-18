@@ -177,8 +177,8 @@ export default function CarDialog({ car, onClose }) {
             </dl>
 
             <p className="car-dialog__note">
-              Tested, inspected and valeted. Full service and ownership history.
-              Test drives are free. Book one by phone or email.
+              Finance, trade-ins and extended warranties available. Call,
+              WhatsApp or email us to book a test drive.
             </p>
 
             <div className="car-dialog__actions">

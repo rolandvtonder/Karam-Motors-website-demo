@@ -46,7 +46,7 @@ export default function Contact() {
           <p className="contact__moved" data-reveal style={{ '--i': 1 }}>
             We&rsquo;ve moved. After more than four decades on Oxford Street in
             Randburg, you&rsquo;ll now find us on the corner of Frederick and
-            Cedar Road in Cedar Lakes.
+            Cedar Road in Fourways.
           </p>
 
           <dl className="contact__list" data-reveal style={{ '--i': 2 }}>
@@ -126,7 +126,7 @@ export default function Contact() {
         <div className="contact__map" ref={mapRef} data-reveal style={{ '--i': 1 }}>
           {showMap ? (
             <iframe
-              title="Map showing Karam Motors on the corner of Frederick and Cedar Road, Cedar Lakes"
+              title="Map showing Karam Motors on the corner of Frederick and Cedar Road, Fourways"
               src={EMBED}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

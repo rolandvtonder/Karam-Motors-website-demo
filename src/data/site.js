@@ -7,8 +7,8 @@ export const SITE = {
   name: 'Karam Motors',
   tagline: 'Quality pre-owned cars since 1980',
   address: {
-    lines: ['Cnr Frederick and Cedar Road', 'Cedar Lakes'],
-    mapQuery: 'Cnr Frederick Road and Cedar Road, Cedar Lakes, Johannesburg',
+    lines: ['Cnr Frederick and Cedar Road', 'Fourways'],
+    mapQuery: 'Cnr Frederick Road and Cedar Road, Fourways, Johannesburg',
   },
   phone: { display: '011 792 9339', href: 'tel:+27117929339' },
   cell: { display: '083 601 8044', href: 'tel:+27836018044' },

@@ -165,26 +165,26 @@ export default function ScrollStage({ imagesRef, started }) {
             <p className="hero__eyebrow">
               <i className="hero__eyebrow-rule" aria-hidden="true" />
               <CarGlyph className="hero__eyebrow-glyph" />
-              <span>Family owned · Est. {FOUNDED}</span>
+              <span>Karam Motors · Fourways</span>
             </p>
 
             <h1 className="hero__title">
-              <span>Pre-owned.</span>
-              <span>Proven.</span>
+              <span>Family owned</span>
+              <span>since {FOUNDED}.</span>
             </h1>
 
             <p className="hero__lede">
-              Quality pre-owned cars with full service histories, each one
-              tested, inspected and valeted before it reaches the floor. A
-              Cedar Lakes family dealership, doing it properly since {FOUNDED}.
+              We&rsquo;ve been buying and selling cars for over 40 years. Come
+              and meet the team, and let us help you find the car you&rsquo;re
+              looking for.
             </p>
 
             <ul className="hero__features">
               <li>
                 <Gauge className="hero__feature-icon" />
                 <div>
-                  <h2>Inspected &amp; valeted</h2>
-                  <p>Every car tested, checked and cleaned before it is listed.</p>
+                  <h2>Cars of all sizes</h2>
+                  <p>Cars under R100K, student cars, family cars, 4x4s and bakkies.</p>
                 </div>
               </li>
               <li>
@@ -212,20 +212,20 @@ export default function ScrollStage({ imagesRef, started }) {
         {/* ---------------------------- 02 - INSPECTED --------------------- */}
         <article className="chapter chapter--seal" ref={setChapter(1)}>
           <div className="chapter__inner">
-            <p className="eyebrow">How we choose</p>
+            <p className="eyebrow">What we offer</p>
             <h2 className="chapter__title">
-              <span>Checked before</span>
-              <span>it&rsquo;s chosen.</span>
+              <span>Quality cars,</span>
+              <span>great service.</span>
             </h2>
             <p className="chapter__body">
-              We source reliable cars with full service and ownership histories.
-              Each one is tested and inspected, then given a full valet, before
-              it goes on the floor.
+              A good selection of popular pre-owned cars and a knowledgeable,
+              experienced sales team. Tell us what you&rsquo;re looking for and
+              we&rsquo;ll help you find it.
             </p>
             <ul className="spec-chips">
-              <li>Full service history</li>
-              <li>Roadworthy certified</li>
-              <li>Full valet</li>
+              <li>Under R100K</li>
+              <li>Family cars</li>
+              <li>4x4s &amp; bakkies</li>
             </ul>
           </div>
         </article>
@@ -233,31 +233,30 @@ export default function ScrollStage({ imagesRef, started }) {
         {/* ---------------------------- 03 - SERVICE ----------------------- */}
         <article className="chapter chapter--layers" ref={setChapter(2)}>
           <div className="chapter__inner">
-            <p className="eyebrow">What&rsquo;s included</p>
+            <p className="eyebrow">Our services</p>
             <h2 className="chapter__title">
-              <span>Everything,</span>
-              <span>handled.</span>
+              <span>Here to help.</span>
             </h2>
             <ol className="layer-list">
               <li>
                 <span className="layer-list__no">01</span>
-                <span className="layer-list__name">Free test drives</span>
-                <span className="layer-list__meta">At a time that suits you</span>
+                <span className="layer-list__name">Car finance</span>
+                <span className="layer-list__meta">Stress-free application</span>
               </li>
               <li>
                 <span className="layer-list__no">02</span>
-                <span className="layer-list__name">Free trade-in valuation</span>
+                <span className="layer-list__name">Trade-ins</span>
                 <span className="layer-list__meta">Fair value for your car</span>
               </li>
               <li>
                 <span className="layer-list__no">03</span>
                 <span className="layer-list__name">Licence &amp; registration</span>
-                <span className="layer-list__meta">Paperwork done for you</span>
+                <span className="layer-list__meta">For all our customers</span>
               </li>
               <li>
                 <span className="layer-list__no">04</span>
-                <span className="layer-list__name">Delivery</span>
-                <span className="layer-list__meta">Free, by arrangement</span>
+                <span className="layer-list__name">Extended warranties</span>
+                <span className="layer-list__meta">Ask our sales team</span>
               </li>
             </ol>
           </div>
